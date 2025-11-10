@@ -1,7 +1,6 @@
 // Inicialização
 document.addEventListener("DOMContentLoaded", () => {
   initializeAnimations()
-  initializePoema()
   initializeButtons()
   const music = document.getElementById("bg-music")
   initializeGames()
@@ -548,6 +547,21 @@ function answerQuiz(selected, correct) {
     showQuizQuestion()
   }, 1500)
 }
+
+// Botão para revelar o poema
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("revelar-poema-btn");
+  const poemaBox = document.getElementById("poema-texto");
+
+  if (btn && poemaBox) {
+    btn.addEventListener("click", () => {
+      btn.style.display = "none"; // esconde o botão
+      poemaBox.style.display = "block"; // mostra o poema
+      initializePoema(); // inicia a animação de digitação
+    });
+  }
+});
+
 
 
 function initializeGames() {
