@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Dia 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-hearts">
+        <span>💕</span>
+        <span>💕</span>
+        <span>💕</span>
+        <span>💕</span>
+        <span>💘</span>
+        <span>💓</span>
+        <span>💜</span>
+        <span>🤍</span>
+        <span>💗</span>
+        <span>💞</span>
+        <span>💖</span>
+        <span>💝</span>
+        <span>❤️</span>
+        <span>💕</span>
+        <span>💘</span>
+        <span>💓</span>
+        <span>💜</span>
+        <span>🤍</span>
+        <span>💗</span>
+        <span>💞</span>
+        <span>💖</span>
+        <span>💝</span>
+        <span>❤️</span>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <h2>Feliz Aniversário 🎉</h2>
+            <div class="button-group">
+                <button id="music-btn" class="btn btn-primary">
+                    <span class="btn-icon">🎵</span>
+                    <span class="btn-text">Tocar Música</span>
+                </button>
+                <div class="volume-control">
+  <button id="vol-down" class="vol-btn">🔉</button>
+  <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+  <button id="vol-up" class="vol-btn">🔊</button>
+</div>
+
+                <button id="games-btn" class="btn btn-secondary">
+                    <span class="btn-icon">🎮</span>
+                    <span class="btn-text">Minijogos</span>
+                </button>
+            </div>
+        </div>
+        <audio id="bg-music" src="audio/Lady Gaga, Bruno Mars - Die With A Smile.mp3"></audio>
+    </header>
+
+    <!-- Minigames -->
+    <div id="games-modal" class="modal">
+        <div class="modal-content">
+
+            <button class="close-modal">&times;</button>
+            <h3>Escolha um Minijogo 🎮</h3>
+            <div class="games-list">
+
+                <button class="game-card" data-game="memory">
+                    <span class="game-icon">🧠</span>
+                    <span class="game-title">Jogo da Memória</span>
+                </button>
+                
+                <button class="game-card" data-game="urso">
+    <span class="game-icon">🧸</span>
+    <span class="game-title">Joguinho do Ursinho</span>
+</button>
+
+                <button class="game-card" data-game="quiz">
+                    <span class="game-icon">❓</span>
+                    <span class="game-title">Quiz do Amor</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Jogo da Memória -->
+    <div id="memory-game" class="game-container" style="display:none;">
+        <div class="game-header">
+            <h4>Jogo da Memória</h4>
+            <button class="btn-close-game">&times;</button>
+        </div>
+        <div class="memory-board"></div>
+        <p class="memory-score">Pares encontrados: <span>0</span>/6</p>
+    </div>
+
+    <!-- Joguinho do Ursinho -->
+<div id="urso-game" class="game-container" style="display:none;">
+    <div class="game-header">
+        <h4>Joguinho do Ursinho 🧸</h4>
+        <button class="btn-close-game">&times;</button>
+    </div>
+
+    <div class="game" id="game">
+        <div id="goal">Pegue 3 moedas para ganhar o jogo!</div>
+        <div id="character">🧸</div>
+        <div id="obstacle">💣</div>
+        <div id="score">Pontos: 0</div>
+        <div id="coins">Moedas: 0</div>
+
+        <div id="gameOver">
+            Game Over 😭<br>
+            <div id="finalScore"></div>
+            <button id="restart-btn">Tentar de novo</button>
+        </div>
+
+        <div id="winScreen">
+            Você conseguiu!!! PARABÉNS💘💘💘<br>
+            <div id="finalScoreWin"></div>
+                <button>EU TE AMO!</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Quiz -->
+    <div id="quiz-game" class="game-container" style="display:none;">
+        <div class="game-header">
+            <h4>Quiz do Amor</h4>
+            <button class="btn-close-game">&times;</button>
+        </div>
+        <div class="quiz-container">
+            <p id="quiz-question"></p>
+            <div class="quiz-options"></div>
+        </div>
+    </div>
+
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hoje é Seu Dia 💕</h3>
+            <p>Desejo que este dia seja tão especial quanto qualquer outro. Que cada momento seja lembrado com alegria, amor e todas as coisas boas da vida. Você merece toda a felicidade, você merece o mundo! EU TE AMOOOOO!!!!!!💕💕💕💕💕</p>
+        </div>
+    </section>
+
+
+    <section class="mensagem-section">
+        <div class="surpresa-container">
+            <button id="surpresa-btn" class="btn btn-accent">
+                <span class="btn-icon">Clique Aqui💝</span>
+            </button>
+            <div id="mensagem" class="mensagem-box" style="display:none;">
+                <p>A melhor parte do meu dia é você 💕</p>
+            </div>
+        </div>
+    </section>
+
+        <section class="poema-section">
+        <div class="poema-container">
+            <div class="poema-header">
+                <h3>Um Poema Especial 🤍</h3>
+            </div>
+            <div class="poema-content">
+                <p id="poema-texto" class="poema-text"></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Eu te amo, Minha Lua🤍</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

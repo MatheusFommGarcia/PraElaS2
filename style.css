@@ -1,0 +1,883 @@
+/* === Cores exclusivas do Jogo do Ursinho === */
+:root {
+  --urso-bg: #9762b8;
+  --urso-borda: #000000;
+  --urso-destaque: #9d00ff;
+  --urso-moeda: #ff0000;
+  --urso-texto: #000000;
+  --urso-fonte: 'Comic Sans MS', cursive;
+}
+
+
+:root {
+  --main-color: #9d00ff;
+  --accent-color: #ff0000;
+  --text-color: #ffffff;
+  --bg-color-02: #000000;
+  --border-radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #9d00ff, #ff0000, #000000, #9d00ff);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: var(--text-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Background Corações */
+.background-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-hearts span {
+  position: absolute;
+  display: block;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 2rem;
+  animation: float 10s linear infinite;
+  animation-fill-mode: both;
+  opacity: 0;
+  transform: translateY(-20vh);
+  animation-delay: calc(var(--delay, 0s));
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(-20vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+.background-hearts span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  font-size: 1.5rem;
+}
+.background-hearts span:nth-child(2) {
+  left: 20%;
+  animation-delay: 2s;
+  font-size: 2rem;
+}
+.background-hearts span:nth-child(3) {
+  left: 30%;
+  animation-delay: 4s;
+  font-size: 2.5rem;
+}
+.background-hearts span:nth-child(4) {
+  left: 40%;
+  animation-delay: 1s;
+  font-size: 1.8rem;
+}
+.background-hearts span:nth-child(5) {
+  left: 50%;
+  animation-delay: 3s;
+  font-size: 2.2rem;
+}
+.background-hearts span:nth-child(6) {
+  left: 60%;
+  animation-delay: 5s;
+  font-size: 2rem;
+}
+.background-hearts span:nth-child(7) {
+  left: 70%;
+  animation-delay: 1.5s;
+  font-size: 1.7rem;
+}
+.background-hearts span:nth-child(8) {
+  left: 80%;
+  animation-delay: 2.5s;
+  font-size: 2.3rem;
+}
+.background-hearts span:nth-child(9) {
+  left: 90%;
+  animation-delay: 3.5s;
+  font-size: 2rem;
+}
+.background-hearts span:nth-child(10) {
+  left: 95%;
+  animation-delay: 4.5s;
+  font-size: 1.9rem;
+}
+
+/* Faz os corações começarem invisíveis e surgirem só quando a animação começa */
+.background-hearts span {
+  animation-fill-mode: forwards;
+}
+
+
+/* Header */
+header {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 1rem;
+  border-bottom: 2px solid var(--main-color);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+header h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  text-shadow: 0 0 20px rgba(157, 0, 255, 0.6);
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Botões */
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--main-color), #b833ff);
+  color: white;
+  box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(157, 0, 255, 0.6);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--accent-color), #ff3333);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, #9d00ff, var(--accent-color));
+  color: white;
+  box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4);
+}
+
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(157, 0, 255, 0.6);
+}
+
+.btn-icon {
+  font-size: 1.25rem;
+}
+
+.btn-text {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .btn-text {
+    display: inline;
+  }
+
+  .btn {
+    padding: 0.875rem 1.75rem;
+  }
+}
+
+/* Controle de Volume */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(157, 0, 255, 0.3);
+}
+
+.vol-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.vol-btn:hover {
+  transform: scale(1.2);
+}
+
+#volume-slider {
+  width: 120px;
+  cursor: pointer;
+  accent-color: var(--main-color);
+}
+
+
+
+/* Seções */
+section {
+  padding: 3rem 1.5rem;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section h3 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: 2rem;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.home {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.home-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-content p {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.8;
+  text-shadow: 0 0 10px rgba(157, 0, 255, 0.3);
+}
+
+/* Galeria */
+.memorias {
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(157, 0, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.galeria img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Seção de Poema */
+.poema-section {
+  background: rgba(157, 0, 255, 0.1);
+  padding: 4rem 1.5rem;
+}
+
+.poema-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(157, 0, 255, 0.2), rgba(255, 0, 0, 0.2));
+  border: 2px solid var(--main-color);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(157, 0, 255, 0.2);
+}
+
+.poema-header h3 {
+  font-size: clamp(1.5rem, 5vw, 1.8rem);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.poema-content {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid var(--accent-color);
+}
+
+.poema-text {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 2;
+  text-align: center;
+  font-style: italic;
+  color: #fff;
+  min-height: 100px;
+  display: block;
+  white-space: pre-wrap; /* mantém as quebras de linha */
+}
+
+/* Seção de Mensagem */
+.mensagem-section {
+  background: rgba(255, 0, 0, 0.1);
+  padding: 4rem 1.5rem;
+}
+
+.surpresa-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mensagem-box {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(157, 0, 255, 0.3));
+  border: 2px solid var(--accent-color);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(255, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+.mensagem-box p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  text-align: center;
+  border-top: 2px solid var(--main-color);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, rgba(157, 0, 255, 0.2), rgba(255, 0, 0, 0.2));
+  border: 2px solid var(--main-color);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  transform: scale(1.1);
+  background: #ff3333;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.games-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.game-card {
+  background: linear-gradient(135deg, var(--main-color), #b833ff);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 2rem 1rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(157, 0, 255, 0.5);
+}
+
+.game-icon {
+  font-size: 2rem;
+}
+
+.game-title {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Game Container */
+.game-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, rgba(157, 0, 255, 0.2), rgba(255, 0, 0, 0.2));
+  border: 2px solid var(--main-color);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.game-header h4 {
+  font-size: 1.5rem;
+}
+
+.btn-close-game {
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-close-game:hover {
+  background: #ff3333;
+  transform: scale(1.1);
+}
+
+/* Memory Game */
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--main-color), #b833ff);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4);
+}
+
+.memory-card:hover {
+  transform: scale(1.05);
+}
+
+.memory-card.flipped {
+  background: linear-gradient(135deg, var(--accent-color), #ff3333);
+}
+
+.memory-score {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+/* Quiz Game */
+.quiz-container {
+  margin: 2rem 0;
+}
+
+#quiz-question {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.quiz-option {
+  background: rgba(157, 0, 255, 0.2);
+  border: 2px solid var(--main-color);
+  border-radius: 12px;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.quiz-option:hover {
+  background: rgba(157, 0, 255, 0.4);
+  transform: translateX(5px);
+}
+
+.quiz-option.correct {
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.3), rgba(0, 200, 0, 0.3));
+  border-color: #00ff00;
+}
+
+.quiz-option.wrong {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(200, 0, 0, 0.3));
+  border-color: #ff0000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+
+  .poema-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .poema-content {
+    padding: 1.5rem;
+  }
+
+  .memory-board {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .clickable {
+    width: 120px;
+    height: 120px;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-group {
+    gap: 0.5rem;
+  }
+
+  .btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .memory-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .poema-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .game-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .clickable {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .game-container {
+    max-height: 75vh;
+    padding: 1rem;
+  }
+
+  .modal-content {
+    max-height: 80vh;
+  }
+}
+
+/* ===========================
+   🎮 Estilos do Jogo do Ursinho
+   =========================== */
+#urso-game {
+  background: linear-gradient(135deg,
+    rgba(255, 240, 245, 0.8),
+    rgba(255, 0, 212, 0.3) 
+    );
+  border: 2px solid var(--urso-borda);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  font-family: var(--urso-fonte);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--urso-texto);
+}
+
+
+#urso-game .titulo {
+  text-align: center;
+  color: var(--urso-texto);
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+#urso-game .game {
+  width: 95%;
+  max-width: 600px;
+  height: 220px;
+  background-color: #fff;
+  border: 4px dashed var(--urso-borda);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+#urso-game #character {
+  font-size: 35px;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  transition: bottom 0.2s;
+}
+
+#urso-game #obstacle {
+  font-size: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  animation: ursoObstacleMove 2s linear infinite;
+}
+
+#urso-game .coin {
+  font-size: 24px;
+  position: absolute;
+  animation: ursoCoinMove 3s linear infinite;
+}
+
+@keyframes ursoObstacleMove {
+  0% { left: 100%; }
+  100% { left: -40px; }
+}
+
+/* 💣 Bomba agora leva 4 segundos em vez de 2 */
+#urso-game #obstacle {
+  font-size: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  animation: ursoObstacleMove 4s linear infinite;
+}
+
+/* 🪙 Moedas agora se movem mais devagar (5s em vez de 3) */
+#urso-game .coin {
+  font-size: 24px;
+  position: absolute;
+  animation: ursoCoinMove 5s linear infinite;
+}
+
+@keyframes ursoCoinMove {
+  0% { left: 100%; }
+  100% { left: -40px; }
+}
+
+/* 🧸 Aumenta a altura do pulo e o tempo do salto */
+/* 🧸 Pulo ajustado: altura média e queda suave */
+/* 🧸 Pulo com queda suave e movimento mais natural */
+#urso-game .jump {
+  animation: ursoJump 1s cubic-bezier(0.28, 0.84, 0.42, 1); 
+}
+
+/* Curva personalizada:
+   - sobe rápido (inicio forte)
+   - segura levemente no topo
+   - desce suavemente (como gravidade real) */
+@keyframes ursoJump {
+  0% {
+    bottom: 0;
+  }
+  35% {
+    bottom: 120px; /* altura do pulo */
+  }
+  55% {
+    bottom: 130px; /* leve sustentação no topo */
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+#urso-game #gameOver,
+#urso-game #winScreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border: 2px solid var(--urso-destaque);
+  border-radius: 10px;
+  text-align: center;
+  display: none;
+}
+
+#urso-game #gameOver button,
+#urso-game #winScreen button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: var(--urso-destaque);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#urso-game #score,
+#urso-game #coins {
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--urso-moeda);
+}
+
+#urso-game #score {
+  right: 15px;
+}
+
+#urso-game #coins {
+  left: 15px;
+}
+
+#urso-game #goal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  color: var(--urso-texto);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  z-index: 999;
+  border-bottom: 2px dashed #ff69b4;
+}
