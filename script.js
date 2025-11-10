@@ -61,8 +61,8 @@ Finalmente,
 Agora tenho um rumo,
 Um propósito.
 
+Eu lutaria por você,
 Eu morreria por você,
-Lutaria por você,
 Faria tudo por você.
 
 Loucura? Pode achar.
